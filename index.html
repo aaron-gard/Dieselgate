@@ -88,6 +88,8 @@
     .snav-btn{background:none;border:none;cursor:pointer;color:var(--navy);display:flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:500;font-family:inherit;padding:.5rem .75rem;border-radius:4px;transition:background .15s;}
     .snav-btn:hover{background:rgba(0,30,80,.06)}
     .snav-btn:disabled{opacity:.3;cursor:default}
+    .snav-btn.notes-active{background:rgba(76,199,244,.12);color:var(--cyan);}
+    .slide-nav.dark .snav-btn.notes-active{background:rgba(76,199,244,.15);color:var(--cyan);}
     .snav-btn svg{width:20px;height:20px}
     .slide-nav.dark .snav-btn{color:rgba(255,255,255,.8)}
     .slide-nav.dark .snav-btn:hover{background:rgba(255,255,255,.08)}
@@ -98,7 +100,14 @@
     .slide-nav.dark .dot{background:rgba(255,255,255,.2)}
     .slide-nav.dark .dot.active{background:var(--cyan)}
     .slide-label{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+
     .slide-nav.dark .slide-label{color:rgba(255,255,255,.4)}
+    .presenter-notes{position:fixed;left:50%;bottom:56px;transform:translateX(-50%);width:min(500px,calc(100vw - 2rem));padding:1rem 1.1rem 1.05rem;background:rgba(0,14,38,.95);color:white;border-radius:6px;box-shadow:0 10px 28px rgba(0,0,0,.24);font-size:.92rem;line-height:1.7;font-weight:300;z-index:9999;opacity:0;pointer-events:none;transition:opacity .2s ease;}
+    .presenter-notes.open{opacity:1;pointer-events:auto;}
+    .pn-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.45rem;}
+    .pn-body{color:white;}
+    .pn-body ul{margin:0;padding:0 0 0 1.1rem;list-style:disc;}
+    .pn-body li{margin-bottom:.35rem;color:rgba(255,255,255,.85);}
     .slide-counter{font-size:.72rem;color:var(--muted);min-width:3rem;text-align:right;}
     .slide-nav.dark .slide-counter{color:rgba(255,255,255,.35)}
 
@@ -328,19 +337,20 @@
   <div class="drawer-section">Ethical Dilemma</div>
   <div class="drawer-link" onclick="goTo(5);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Ethical Dilemma: Slide 1</div>
   <div class="drawer-link" onclick="goTo(6);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>Ethical Dilemma: Slide 2</div>
+  <div class="drawer-link" onclick="goTo(7);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>Ethical Dilemma: Slide 3</div>
   <div class="drawer-divider"></div>
   <div class="drawer-section">Analysis</div>
-  <div class="drawer-link" onclick="goTo(7);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>Analysis: Slide 1</div>
-  <div class="drawer-link" onclick="goTo(8);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>Analysis: Slide 2</div>
-  <div class="drawer-link" onclick="goTo(9);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>Evaluation</div>
+  <div class="drawer-link" onclick="goTo(8);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>Analysis: Slide 1</div>
+  <div class="drawer-link" onclick="goTo(9);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>Analysis: Slide 2</div>
+  <div class="drawer-link" onclick="goTo(10);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>Evaluation</div>
   <div class="drawer-divider"></div>
   <div class="drawer-section">The Room</div>
-  <div class="drawer-link" onclick="goTo(10);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Update</div>
-  <div class="drawer-link" onclick="goTo(11);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>Discussion</div>
-  <div class="drawer-link" onclick="goTo(12);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Conclusion</div>
+  <div class="drawer-link" onclick="goTo(11);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Update</div>
+  <div class="drawer-link" onclick="goTo(12);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>Discussion</div>
+  <div class="drawer-link" onclick="goTo(13);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Conclusion</div>
   <div class="drawer-section">Appendix</div>
-  <div class="drawer-link" onclick="goTo(13);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>References</div>
-  <div class="drawer-link" onclick="goTo(14);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>AI Disclosure</div>
+  <div class="drawer-link" onclick="goTo(14);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>References</div>
+  <div class="drawer-link" onclick="goTo(15);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>AI Disclosure</div>
   <div class="drawer-divider"></div>
   <div class="drawer-section">Reference &amp; Sources</div>
   <a class="drawer-link" href="img/vw-insead-case.pdf" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>INSEAD Case (IN1465) PDF</a>
@@ -369,7 +379,7 @@
 
             The fallout included more than $30 billion in fines, 59 premature deaths in the US alone, the resignation of the CEO, and prison sentences for senior engineers.
 
-            This is not a story about bad people. It is a story about what happens when a culture of winning at all costs is allowed to operate without ethical or legal guardrails.</p>
+            This is not a story about bad people. It is a story about what happens when an obsession with growth meets a culture where no one feels safe enough to say it cannot be done.</p>
         <div class="fi d3" style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:1rem;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" width="18" height="18" style="flex-shrink:0"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           <p style="font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.7;margin:0;">Based on INSEAD Case IN1465: <em>Volkswagen&rsquo;s Emissions Scandal: How Could It Happen?</em><br>Erin McCormick &amp; Prof. N. Craig Smith &middot; oikos Case Writing Competition 2018 (2nd Prize, Corporate Sustainability)</p>
@@ -493,7 +503,7 @@
           </div>
           <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--red);">
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.2rem;">Sep 18, 2015 | Exposed</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">EPA publishes the Notice of Violation. VW stock falls 20% on Monday. By month&rsquo;s end, down 37%. $20 billion in market cap erased. Winterkorn resigns 5 days later.</p>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">The EPA publishes a formal Notice of Violation. Three days later, VW admits the defeat device was installed in 11 million vehicles worldwide.</p>
           </div>
         </div>
       </div>
@@ -507,26 +517,36 @@
       <div class="col-text">
         <div class="section-tag fi">Background</div>
         <h2 class="section-title fi d1">The <em>fallout.</em></h2>
-        <div class="fi d2" style="margin:0;display:flex;flex-direction:column;gap:.65rem;">
-          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">Sep 22 | The apology</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Winterkorn posts a 57-second video expressing deep regret and promising full transparency, but offers no explanation of who knew, how it happened, or how far it went.</p>
+        <div class="fi d2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:1rem;">
+          <div style="background:#F5F7FA;padding:1rem;text-align:center;">
+            <span style="font-family:Inter,Helvetica,sans-serif;font-size:1.8rem;font-weight:200;color:var(--deep);display:block;letter-spacing:-.02em;">$33B</span>
+            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.5;">Fines &amp; settlements</span>
+          </div>
+          <div style="background:#F5F7FA;padding:1rem;text-align:center;">
+            <span style="font-family:Inter,Helvetica,sans-serif;font-size:1.8rem;font-weight:200;color:var(--red);display:block;letter-spacing:-.02em;">59</span>
+            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.5;">Premature deaths (US)</span>
+          </div>
+          <div style="background:#F5F7FA;padding:1rem;text-align:center;">
+            <span style="font-family:Inter,Helvetica,sans-serif;font-size:1.8rem;font-weight:200;color:var(--deep);display:block;letter-spacing:-.02em;">11M</span>
+            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.5;">Vehicles affected</span>
+          </div>
+        </div>
+        <div class="fi d3" style="display:flex;flex-direction:column;gap:.65rem;">
+          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--red);">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem;">Financial</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">The largest corporate criminal penalty in US automotive history. 450,000 vehicles bought back in the US alone.</p>
           </div>
           <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--red);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem;">&ldquo;We totally screwed up&rdquo;</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Michael Horn, VW&rsquo;s US CEO, faces a room of journalists. His opening line becomes the most quoted sentence of the scandal.</p>
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem;">Human</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">An MIT study linked excess NOx emissions to 59 premature deaths. Nitrogen dioxide exposure causes asthma, heart disease, and early mortality.</p>
           </div>
           <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">Sep 23 | The resignation</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Winterkorn resigns. His contract protects his &euro;28M pension in full. His replacement, Matthias M&uuml;ller, gives his first press statement: &ldquo;We didn't lie.&rdquo; He retracts it 24 hours later.</p>
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">Leadership</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Winterkorn resigned within five days. Oliver Schmidt was arrested at Miami airport and sentenced to seven years. Of roughly 40 suspects, only two faced US charges.</p>
           </div>
           <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">The arrest</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Oliver Schmidt flies to California to personally &ldquo;clarify&rdquo; VW&rsquo;s position with regulators. Three days later he is arrested at Miami International Airport and sentenced to seven years in US federal prison.</p>
-          </div>
-          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--red);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem;">The cost</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">An MIT study attributed 59 premature US deaths to excess NOx from VW vehicles. Consumer confidence in diesel collapsed across Europe and North America. Germany does not extradite its citizens. Of approximately 40 suspects, only two faced US charges.</p>
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">Market</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Consumer confidence in diesel collapsed across Europe and North America. TDI sales were discontinued in the US.</p>
           </div>
         </div>
       </div>
@@ -549,6 +569,7 @@
       </div>
     </div>
   </div>
+
 
 <!-- ═══ SLIDE: ETHICAL DILEMMA 1 - WHO KNEW (id: s-whokn) ═══ -->
   <div class="slide slide-bg-grey" id="s-whokn">
@@ -603,6 +624,7 @@
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Targets without limits</div>
           </div>
           <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Strategy 2018 demanded 10 million vehicles per year. It arrived without guardrails, without compliance floors, without a definition of acceptable methods. When the engineering team said the US NOx target was physically impossible, they were overridden.<span class="cite">(Bach &amp; Allen 2010)</span></p>
+          <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Professor David Bach of Yale put it simply. <em>&ldquo;Stretch goals are very useful. Precisely because they generate a lot of pressure, you have to make sure they are coupled with a clear sense of what the boundaries are. That was just missing at Volkswagen.&rdquo;</em></p>
           <blockquote style="font-size:.8rem;border-left:none;padding:0;margin:0;font-style:italic;color:var(--muted);">&ldquo;Do it, or I'll find someone who can.&rdquo;<cite style="font-style:normal;">Ferdinand Piëch</cite></blockquote>
         </div>
 
@@ -612,6 +634,7 @@
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Fear as management style</div>
           </div>
           <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Winterkorn publicly humiliated executives at motor shows. Piëch fired whole teams to make a point. In that culture, raising a problem was career suicide.<span class="cite">(McCormick &amp; Smith 2018)</span></p>
+          <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Bob Lutz, former Vice Chairman of GM, described it as a <em>&ldquo;reign of terror.&rdquo;</em> He recounted Piëch explaining his approach to innovation: call all engineers into a room and tell them if they could not find a new way to do the job in six weeks, they would all be fired. <em>&ldquo;You know your problem, Mr. Lutz? You&rsquo;re way too soft. When I want something, I get it.&rdquo;</em></p>
           <blockquote style="font-size:.8rem;border-left:none;padding:0;margin:0;font-style:italic;color:var(--muted);">&ldquo;VW had this special culture. It was like North Korea without the labour camps.&rdquo;<cite style="font-style:normal;">Former VW management trainee</cite></blockquote>
         </div>
 
@@ -624,6 +647,37 @@
           <blockquote style="font-size:.8rem;border-left:none;padding:0;margin:0;font-style:italic;color:var(--muted);">&ldquo;The board was only really there for show. They lacked the ability to ask any deep technical questions.&rdquo;<cite style="font-style:normal;">Former VW executive, Financial Times</cite></blockquote>
         </div>
 
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE: THE COVER-UP (id: s-coverup) ═══ -->
+  <div class="slide slide-bg-grey" id="s-coverup">
+    <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
+    <div class="two-col" style="padding-top:100px;">
+      <div class="col-media" style="position:relative;overflow:hidden;">
+        <img src="img/propublica-vw.jpg" alt="VW factory" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.45) 0%,rgba(0,0,0,.15) 55%,transparent 100%);pointer-events:none;"></div>
+      </div>
+      <div class="col-text">
+        <div class="section-tag fi">Ethical Dilemma</div>
+        <h2 class="section-title fi d1">The cover-up was <em>a choice.</em></h2>
+        <div class="fi d2" style="margin:0;display:flex;flex-direction:column;gap:.65rem;">
+          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">Spring 2014 | Discovery</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Researchers at West Virginia University tested VW diesels on the road using a homemade device strapped to the exhaust. The cars passed every lab test but emitted up to 40 times the legal NOx limit on the road. When California&rsquo;s Air Resources Board asked VW to explain, they expected a routine technical fix.</p>
+          </div>
+          <div class="fi d3" style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">2014-2015 | Obstruction</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Instead of disclosing the defeat device, VW managers tried to discredit the research, blamed &lsquo;calibration issues&rsquo; and &lsquo;unexpected in-use conditions,&rsquo; and issued a voluntary recall that they knew would not fix the problem. When CARB demanded data on the results of the fix, VW gave no answer.</p>
+          </div>
+          <div class="fi d4" style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--red);">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem;">Internal emails, 2015</div>
+            <div class="email-block" style="margin-top:0;"><em>&ldquo;We just need a plausible explanation as to why the emissions are still high!!!&rdquo;</em> (April 2015)</div>
+            <div class="email-block"><em>&ldquo;We need a story for the situation!&rdquo;</em> (May 2015)</div>
+            <div class="email-block" style="margin-bottom:0;"><em>&ldquo;We must be sure to prevent the authority from testing Gen 1. If Gen 1 goes onto the roller at the CARB, then we&rsquo;ll have nothing more to laugh about!!!!&rdquo;</em> (June 2015)</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -730,9 +784,6 @@
             <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">He was in the room when NOx non-compliance was discussed in 2007. He denied knowledge under oath. Indicted for fraud and perjury.<span class="cite">(McCormick &amp; Smith 2018)</span></p>
           </div>
 
-          <div style="background:var(--navy);padding:1rem 1.25rem;">
-            <p style="font-size:1rem;color:white;line-height:1.7;font-weight:300;margin:0;">He didn&rsquo;t code the defeat device. He built the system that produced it. The result was more than $30B in fines, 59 deaths, and engineers in prison. His pension remained intact.</p>
-          </div>
 
         </div>
       </div>
@@ -800,10 +851,7 @@
             <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">TDI discontinued in North America. Brand perception partially recovered in Europe. In the US, the brand is permanently associated with the scandal.</p>
           </div>
 
-          <div style="background:var(--navy);padding:1rem 1.25rem;">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.25rem;">Governance reform?</div>
-            <p style="font-size:1rem;color:white;font-weight:300;line-height:1.7;margin:0;">No structural change to board composition. Porsche-Pi&euml;ch family still controls 53% of voting shares. The ownership structure that enabled Dieselgate is unchanged.</p>
-          </div>
+
         </div>
 
       </div>
@@ -914,6 +962,9 @@
     <div class="slide-dots" id="slideDots"></div>
     <span class="slide-label" id="slideLabel">Hero</span>
   </div>
+  <button class="snav-btn" id="notesToggle" onclick="toggleNotesMode()" title="Toggle speaker notes">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 8h10M7 12h6m-3 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4z"/></svg>
+  </button>
   <button class="snav-btn" id="nextBtn" onclick="nextSlide()">
     Next
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
@@ -921,27 +972,33 @@
 </div><!-- end slideNav -->
 </div><!-- end slide-deck -->
 
+<div class="presenter-notes" id="presenterNotes">
+  <div class="pn-label">Speaker Notes</div>
+  <div class="pn-body" id="pnBody"></div>
+</div>
+
 <script>
   // ── SLIDE DATA ──
   const SLIDES = [
     // ── PART 1: WHAT HAPPENED ──
-    { id:'s0',        label:'Hero',                dark:true  },  // 0
-    { id:'s1',        label:'Background: Slide 1',         dark:false },  // 1
-    { id:'s2',        label:'Background: Slide 2', dark:false },  // 2
-    { id:'s4',        label:'Background: Slide 3', dark:false },  // 3
-    { id:'s5',        label:'Background: Slide 4', dark:false },  // 4
+    { id:'s0',        label:'Hero',                dark:true,  notes:'<ul><li>Case is INSEAD IN1465</li><li>VW founded in the 1930s under Hitler\u2019s commission for a \u201Cpeople\u2019s car\u201D</li><li>The Beetle sold 21 million units</li><li>Porsche-Pi\u00EBch family has controlled the company ever since</li></ul>' },  // 0
+    { id:'s1',        label:'Background: Slide 1',         dark:false, notes:'<ul><li>Clean Diesel campaign won a Cannes Lion Grand Prix</li><li>Bob Lutz at GM ordered his engineers to match VW\u2019s diesel performance</li><li>They couldn\u2019t. Same suppliers, same equipment</li><li>Lutz assumed it was simply German engineering brilliance</li></ul>' },  // 1
+    { id:'s2',        label:'Background: Slide 2', dark:false, notes:'<ul><li>Don Hillebrand at Argonne National Lab described the diesel trilemma: power, fuel efficiency, and low emissions</li><li>You get to choose two. VW promised all three</li></ul>' },  // 2
+    { id:'s4',        label:'Background: Slide 3', dark:false, notes:'<ul><li>The defeat device was not physical hardware</li><li>A few lines of code in the engine control unit, buried among millions of other lines</li><li>Detected whether the car was on a test roller or on the road</li></ul>' },  // 3
+    { id:'s5',        label:'Background: Slide 4', dark:false, notes:'<ul><li>Winterkorn posted a 57-second apology video promising full transparency but explained nothing</li><li>Michael Horn, VW\u2019s US CEO, told journalists \u201CWe totally screwed up\u201D</li><li>Winterkorn\u2019s replacement, Matthias M\u00FCller: \u201CWe didn\u2019t lie.\u201D Retracted 24 hours later</li></ul>' },  // 4
     // ── PART 2: WHY IT HAPPENED ──
     { id:'s-whokn',   label:'Ethical Dilemma: Slide 1', dark:false },  // 6
-    { id:'s3',        label:'Ethical Dilemma: Slide 2', dark:false },  // 7
+    { id:'s3',        label:'Ethical Dilemma: Slide 2', dark:false, notes:'<ul><li>Former VW management trainee: \u201CLike North Korea without the labour camps\u201D</li><li>Supervisory board had 20 members, only one genuine outsider</li><li>Rest were family, government, or labour</li><li>Critics said the board was there for appearances only</li></ul>' },  // 7
+    { id:'s-coverup', label:'Ethical Dilemma: Slide 3', dark:false },
     // ── PART 3: THE ANALYSIS ──
     { id:'s8',        label:'Analysis: Slide 1',   dark:false },  // 8
     { id:'s9',        label:'Analysis: Slide 3',   dark:false },  // 10
-    { id:'s-eval',    label:'Evaluation',          dark:false },  // 11
+    { id:'s-eval',    label:'Evaluation',          dark:false, notes:'<ul><li>He didn\u2019t code the defeat device. He built the system that produced it</li><li>The result: more than $30B in fines, 59 deaths, engineers in prison</li><li>His \u20AC28M pension remained intact</li></ul>' },  // 11
     // Room slides shifted by 1
     // ── PART 4: THE ROOM ──
-    { id:'s10',       label:'Update',              dark:false },  // 13
+    { id:'s10',       label:'Update',              dark:false, notes:'<ul><li>No structural change to board composition</li><li>Porsche-Pi\u00EBch family still controls 53% of voting shares</li><li>The ownership structure that enabled Dieselgate is unchanged</li></ul>' },  // 13
     { id:'s11',       label:'Discussion',          dark:false },  // 14
-    { id:'s12',       label:'Conclusion',           dark:true  },  // 13
+    { id:'s12',       label:'Conclusion',           dark:true,  notes:'<ul><li>VW is now the world\u2019s second-largest automaker</li><li>Porsche-Pi\u00EBch family still controls 53% of voting shares</li><li>No structural governance reform has been made</li><li>The conditions that produced Dieselgate remain in place</li></ul>' },  // 13
     { id:'s-refs',    label:'References',           dark:false },  // 14
     { id:'s-ai',      label:'AI Disclosure',        dark:false },  // 15
   ];
@@ -964,6 +1021,44 @@
   const nextBtn = document.getElementById('nextBtn');
   const slideLabel = document.getElementById('slideLabel');
   const dotsEl = document.getElementById('slideDots');
+  const presenterNotes = document.getElementById('presenterNotes');
+  const pnBody = document.getElementById('pnBody');
+
+  var notesAlwaysOn = false;
+
+  function hasNotes(slide) {
+    return !!(slide && slide.notes);
+  }
+
+  function closePresenterNotes() {
+    presenterNotes.classList.remove('open');
+  }
+
+  function showPresenterNotes() {
+    const slide = SLIDES[current];
+    if (!hasNotes(slide)) { closePresenterNotes(); return; }
+    pnBody.innerHTML = slide.notes;
+    presenterNotes.classList.add('open');
+  }
+
+  function togglePresenterNotes() {
+    const slide = SLIDES[current];
+    if (!hasNotes(slide)) return;
+    const isOpen = presenterNotes.classList.contains('open');
+    if (isOpen) {
+      closePresenterNotes();
+      return;
+    }
+    showPresenterNotes();
+  }
+
+  function toggleNotesMode() {
+    notesAlwaysOn = !notesAlwaysOn;
+    var btn = document.getElementById('notesToggle');
+    btn.classList.toggle('notes-active', notesAlwaysOn);
+    if (notesAlwaysOn) { showPresenterNotes(); }
+    else { closePresenterNotes(); }
+  }
 
   // Build dots
   SLIDES.forEach((s, i) => {
@@ -979,6 +1074,7 @@
     // Bottom nav
     nav.className = 'slide-nav' + (s.dark ? ' dark' : '');
     slideLabel.textContent = s.label;
+    slideLabel.style.cursor = hasNotes(s) ? 'pointer' : 'default';
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === SLIDES.length - 1;
     // Dots
@@ -989,6 +1085,8 @@
 
   function goTo(next) {
     if (next === current || next < 0 || next >= SLIDES.length) return;
+    closePresenterNotes();
+    var shouldAutoShow = notesAlwaysOn;
     const dir = next > current ? 1 : -1;
     const outEl = slideEls[current];
     const inEl = slideEls[next];
@@ -1017,6 +1115,7 @@
 
     current = next;
     updateNav();
+    if (shouldAutoShow) { showPresenterNotes(); }
 
     // Trigger .fi animations for the new slide
     setTimeout(() => {
@@ -1034,6 +1133,21 @@
 
   function nextSlide() { goTo(current + 1); }
   function prevSlide() { goTo(current - 1); }
+
+  slideLabel.addEventListener('click', e => {
+    e.stopPropagation();
+    togglePresenterNotes();
+  });
+
+
+
+  presenterNotes.addEventListener('click', e => {
+    e.stopPropagation();
+  });
+
+  document.addEventListener('click', () => {
+    if (!notesAlwaysOn) closePresenterNotes();
+  });
 
   // Keyboard
   document.addEventListener('keydown', e => {
