@@ -244,6 +244,9 @@
     .dq{background:var(--white);padding:2rem;transition:background .2s;}
     .dq:hover{background:#F5F7FA}
     .dq-t{font-family:Inter,Helvetica,Arial,sans-serif;font-size:1.15rem;font-weight:200;color:var(--deep);line-height:1.45;letter-spacing:-.01em;}
+    .discussion-prompt{position:absolute;bottom:80px;right:2rem;z-index:100;max-width:380px;background:rgba(0,14,38,.92);backdrop-filter:blur(12px);border-left:3px solid var(--cyan);padding:1.25rem 1.75rem;border-radius:0 6px 6px 0;box-shadow:0 8px 32px rgba(0,0,0,.3);}
+    .discussion-prompt .dp-label{font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:.5rem;}
+    .discussion-prompt .dp-question{font-family:Inter,Helvetica,Arial,sans-serif;font-size:1rem;font-weight:300;color:rgba(255,255,255,.9);line-height:1.6;font-style:italic;}
 
     /* Trade-off */
     .tc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
@@ -346,11 +349,10 @@
   <div class="drawer-divider"></div>
   <div class="drawer-section">The Room</div>
   <div class="drawer-link" onclick="goTo(11);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Update</div>
-  <div class="drawer-link" onclick="goTo(12);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>Discussion</div>
-  <div class="drawer-link" onclick="goTo(13);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Conclusion</div>
+  <div class="drawer-link" onclick="goTo(12);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Conclusion</div>
   <div class="drawer-section">Appendix</div>
-  <div class="drawer-link" onclick="goTo(14);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>References</div>
-  <div class="drawer-link" onclick="goTo(15);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>AI Disclosure</div>
+  <div class="drawer-link" onclick="goTo(13);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>References</div>
+  <div class="drawer-link" onclick="goTo(14);closeDrawer()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>AI Disclosure</div>
   <div class="drawer-divider"></div>
   <div class="drawer-section">Reference &amp; Sources</div>
   <a class="drawer-link" href="img/vw-insead-case.pdf" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>INSEAD Case (IN1465) PDF</a>
@@ -379,7 +381,7 @@
 
             The fallout included more than $30 billion in fines, 59 premature deaths in the US alone, the resignation of the CEO, and prison sentences for senior engineers.
 
-            This is not a story about bad people. It is a story about what happens when an obsession with growth meets a culture where no one feels safe enough to say it cannot be done.</p>
+            This is not a story about bad people. <strong>It is a story about what happens when an obsession with growth meets a culture where no one feels safe enough to say it cannot be done.</strong></p>
         <div class="fi d3" style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:1rem;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" width="18" height="18" style="flex-shrink:0"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           <p style="font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.7;margin:0;">Based on INSEAD Case IN1465: <em>Volkswagen&rsquo;s Emissions Scandal: How Could It Happen?</em><br>Erin McCormick &amp; Prof. N. Craig Smith &middot; oikos Case Writing Competition 2018 (2nd Prize, Corporate Sustainability)</p>
@@ -466,6 +468,10 @@
           <div style="font-size:.85rem;color:white;font-style:italic;opacity:.8;">"The most advanced diesel ever built."</div>
         </div>
       </div>
+    </div>
+    <div class="discussion-prompt fi d3">
+      <div class="dp-label">Discussion</div>
+      <div class="dp-question">If you were the engineer in 2005, what do you actually do? What would have stopped you from speaking up?</div>
     </div>
   </div>
 
@@ -680,6 +686,10 @@
         </div>
       </div>
     </div>
+    <div class="discussion-prompt fi d3" style="right:auto;left:2rem;">
+      <div class="dp-label">Discussion</div>
+      <div class="dp-question">At what point does silence become complicity?</div>
+    </div>
   </div>
 
   <!-- ═══ SLIDE: LEADER EVALUATION (id: s-eval) ═══ -->
@@ -747,6 +757,10 @@
           <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">An ethical leader confronts the problem when it surfaces, not when it becomes uncontainable. VW had multiple opportunities to self-disclose at modest cost. Each refusal escalated a compliance failure into a criminal conspiracy.<span class="cite">(McCormick &amp; Smith 2018)</span></p>
         </div>
       </div>
+    </div>
+    <div class="discussion-prompt fi d3">
+      <div class="dp-label">Discussion</div>
+      <div class="dp-question">Which of these three failures was the most preventable, and by whom?</div>
     </div>
   </div>
 
@@ -859,37 +873,6 @@
   </div>
 
   <!-- ═══ SLIDE: DISCUSSION (id: s11) ═══ -->
-  <div class="slide slide-bg-grey" id="s11">
-    <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
-    <div class="two-col" style="padding-top:100px;grid-template-columns:38% 1fr;">
-      <!-- Image column -->
-      <div class="col-media" style="position:relative;overflow:hidden;">
-        <img src="img/carbuzz-desert.jpg" alt="Desert road" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
-        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.3) 0%,transparent 60%);pointer-events:none;"></div>
-      </div>
-      <!-- Content column -->
-      <div class="col-text">
-        <div class="section-tag fi">Discussion</div>
-        <h2 class="section-title fi d1" style="margin-bottom:.5rem;">Discussion.</h2>
-
-        <div class="dq-grid fi d2">
-          <div class="dq">
-            <div class="dq-t">If you were the engineer in 2005, what do you actually do? What would have stopped you from speaking up?</div>
-          </div>
-          <div class="dq">
-            <div class="dq-t">Is Winterkorn the villain, or the symptom? Does the distinction matter for how we prevent this next time?</div>
-          </div>
-          <div class="dq">
-            <div class="dq-t">What one structural change (governance, culture, or incentives) would have made this impossible?</div>
-          </div>
-          <div class="dq">
-            <div class="dq-t">Your organisation has an unsolvable problem. The target is set and non-negotiable. What does ethical leadership look like in that moment?</div>
-          </div>
-        </div>
-        <p style="font-size:.72rem;color:var(--muted);margin-top:1.5rem;font-style:italic;">Source: INSEAD Case IN1465, Erin McCormick &amp; N. Craig Smith, 2018</p>
-      </div>
-    </div>
-  </div>
 
   <!-- ═══ SLIDE: OUR MODELS (id: s12) ═══ -->
   <div class="slide slide-bg-grey" id="s12">
@@ -901,9 +884,11 @@
         <p style="font-size:1.1rem;color:rgba(255,255,255,.7);line-height:1.8;font-weight:300;margin:0;max-width:700px;" class="fi d2">If an engineer in your team discovered something illegal today, would they tell you? If the honest answer is &ldquo;I&rsquo;m not sure,&rdquo; that is the problem Dieselgate is really about.</p>
       </div>
     </div>
+    <div class="discussion-prompt fi d3">
+      <div class="dp-label">Final question</div>
+      <div class="dp-question">Your organisation has an unsolvable problem. The target is set and non-negotiable. What does ethical leadership look like in that moment?</div>
+    </div>
   </div>
-
-
 
   <!-- ═══ SLIDE: REFERENCES (id: s-refs) ═══ -->
   <div class="slide" id="s-refs" style="background:white;">
@@ -992,12 +977,11 @@
     { id:'s-coverup', label:'Ethical Dilemma: Slide 3', dark:false },
     // ── PART 3: THE ANALYSIS ──
     { id:'s8',        label:'Analysis: Slide 1',   dark:false },  // 8
-    { id:'s9',        label:'Analysis: Slide 3',   dark:false },  // 10
+    { id:'s9',        label:'Analysis: Slide 3',   dark:false, notes:'<ul><li>Bach and Allen (2010): stretch goals without boundaries are just pressure. The leader\u2019s job is to define what methods are off limits before setting the ambition</li><li>Brown and Trevi\u00F1o (2006): being a good person is not the same as being an ethical leader. Winterkorn may have been the first, but ethical leadership requires actively shaping the culture so bad news travels up</li><li>Goleman (1998): emotional intelligence in leadership means reading the room. Winterkorn\u2019s dictatorial style ensured no one would tell him what he didn\u2019t want to hear</li><li>The cover-up is the proof: VW had at least 4 clear off-ramps between 2014 and 2015. Each time, managers chose concealment over disclosure. That is not a system failure, it is a leadership failure</li></ul>' },  // 10
     { id:'s-eval',    label:'Evaluation',          dark:false, notes:'<ul><li>He didn\u2019t code the defeat device. He built the system that produced it</li><li>The result: more than $30B in fines, 59 deaths, engineers in prison</li><li>His \u20AC28M pension remained intact</li></ul>' },  // 11
     // Room slides shifted by 1
     // ── PART 4: THE ROOM ──
     { id:'s10',       label:'Update',              dark:false, notes:'<ul><li>No structural change to board composition</li><li>Porsche-Pi\u00EBch family still controls 53% of voting shares</li><li>The ownership structure that enabled Dieselgate is unchanged</li></ul>' },  // 13
-    { id:'s11',       label:'Discussion',          dark:false },  // 14
     { id:'s12',       label:'Conclusion',           dark:true,  notes:'<ul><li>VW is now the world\u2019s second-largest automaker</li><li>Porsche-Pi\u00EBch family still controls 53% of voting shares</li><li>No structural governance reform has been made</li><li>The conditions that produced Dieselgate remain in place</li></ul>' },  // 13
     { id:'s-refs',    label:'References',           dark:false },  // 14
     { id:'s-ai',      label:'AI Disclosure',        dark:false },  // 15
