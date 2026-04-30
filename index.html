@@ -263,6 +263,17 @@
     .hero-slide{position:relative;width:100%;height:100%;overflow:hidden;background:var(--deep);display:flex;align-items:flex-end;}
     /* Light-slide variant of narration bubble (e.g. grey/white slides) */
     .narration-bubble-light{border-color:rgba(0,30,80,.4);box-shadow:0 14px 34px rgba(0,30,80,.18),0 0 0 1px rgba(0,30,80,.08);}
+    /* Stacked clip players (vertical, click to play) */
+    [data-clip-player] .clip-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(0,14,38,.7);border:1px solid rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;color:white;box-shadow:0 8px 22px rgba(0,0,0,.35);transition:opacity .18s ease,transform .18s ease;pointer-events:none;}
+    [data-clip-player] .clip-play svg{width:22px;height:22px;margin-left:3px;fill:currentColor;}
+    [data-clip-player]:hover .clip-play{transform:translate(-50%,-50%) scale(1.06);}
+    [data-clip-player].is-playing .clip-play{opacity:0;}
+    /* Stacked clips overlay container (covers entire col-media when active) */
+    .clip-stack-overlay{position:absolute;inset:0;background:#000;display:none;z-index:5;}
+    .clip-stack-overlay.is-open{display:block;}
+    .clip-stack-overlay video{width:100%;height:100%;object-fit:contain;display:block;background:#000;}
+    .clip-stack-overlay-close{position:absolute;top:.6rem;right:.6rem;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:6;font-size:1.1rem;line-height:1;padding:0;}
+    .clip-stack-overlay-close:hover{background:rgba(0,0,0,.85);border-color:rgba(255,255,255,.85);}
     .narration-bubble{position:absolute;right:clamp(1.5rem,4vw,3.5rem);bottom:clamp(5.4rem,8vh,7rem);z-index:30;width:146px;height:146px;padding:0;appearance:none;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.85);background:rgba(0,14,38,.82);box-shadow:0 14px 34px rgba(0,0,0,.38),0 0 0 1px rgba(0,0,0,.22);cursor:pointer;opacity:.92;transform:translateZ(0);transition:width .22s ease,height .22s ease,opacity .22s ease,box-shadow .22s ease,border-color .22s ease;}
     .narration-bubble:hover,.narration-bubble:focus-within,.narration-bubble.is-previewing,.narration-bubble.is-playing{width:195px;height:195px;opacity:1;border-color:var(--cyan);box-shadow:0 18px 44px rgba(0,0,0,.48),0 0 0 4px rgba(76,199,244,.14);}
     .narration-bubble video{width:100%;height:100%;display:block;object-fit:cover;object-position:center;border-radius:50%;}
@@ -600,12 +611,24 @@
   <div class="slide slide-bg-grey" id="s-whokn">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
     <div class="two-col" style="padding-top:100px;grid-template-columns:1fr 1fr;">
-      <div class="col-media" style="position:relative;overflow:hidden;">
-        <img src="img/bloomberg-factory.webp" alt="VW factory floor" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
-        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.3) 0%,transparent 60%);pointer-events:none;"></div>
-        <div style="position:absolute;bottom:2rem;left:2rem;">
-          <div style="font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.3rem;">Bloomberg / VW Wolfsburg</div>
-          <div style="font-size:.85rem;color:white;font-style:italic;opacity:.8;">VW Wolfsburg assembly line.</div>
+      <div class="col-media" style="position:relative;overflow:hidden;background:#000;">
+        <div class="clip-stack" style="position:absolute;inset:0;display:flex;flex-direction:column;gap:6px;">
+          <div data-clip-player data-src="assets/dieselgate/whokn-clip3.mp4" style="position:relative;flex:1;min-height:0;overflow:hidden;cursor:pointer;">
+            <video src="assets/dieselgate/whokn-clip3.mp4" poster="assets/dieselgate/whokn-clip3-poster.jpg" playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;"></video>
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div data-clip-player data-src="assets/dieselgate/whokn-clip.mp4" style="position:relative;flex:1;min-height:0;overflow:hidden;cursor:pointer;">
+            <video src="assets/dieselgate/whokn-clip.mp4" poster="assets/dieselgate/whokn-clip-poster.jpg" playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;"></video>
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div data-clip-player data-src="assets/dieselgate/whokn-clip2.mp4" style="position:relative;flex:1;min-height:0;overflow:hidden;cursor:pointer;">
+            <video src="assets/dieselgate/whokn-clip2.mp4" poster="assets/dieselgate/whokn-clip2-poster.jpg" playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;"></video>
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+        </div>
+        <div class="clip-stack-overlay" data-clip-overlay>
+          <button type="button" class="clip-stack-overlay-close" aria-label="Close video">×</button>
+          <video controls playsinline preload="metadata"></video>
         </div>
       </div>
       <div class="col-text">
@@ -1097,6 +1120,8 @@
   function goTo(next) {
     if (next === current || next < 0 || next >= SLIDES.length) return;
     document.querySelectorAll('[data-narration] video').forEach(v => v.pause());
+    document.querySelectorAll('[data-slide-video]').forEach(v => { v.pause(); try { v.currentTime = 0; } catch (e) {} });
+    document.querySelectorAll('[data-clip-overlay].is-open').forEach(o => { if (o._close) o._close(); });
     closePresenterNotes();
     var shouldAutoShow = notesAlwaysOn;
     const dir = next > current ? 1 : -1;
@@ -1141,7 +1166,47 @@
       }, 300);
     }
 
+    // Autoplay any slide-embedded videos (muted, loop) when entering a slide
+    inEl.querySelectorAll('[data-slide-video]').forEach(v => {
+      v.muted = true;
+      const p = v.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    });
+
   }
+
+  // Click-to-play handlers for stacked clip players (open in overlay)
+  document.querySelectorAll('[data-clip-overlay]').forEach(overlay => {
+    const overlayVideo = overlay.querySelector('video');
+    const closeBtn = overlay.querySelector('.clip-stack-overlay-close');
+    function closeOverlay() {
+      overlayVideo.pause();
+      overlayVideo.removeAttribute('src');
+      overlayVideo.load();
+      overlay.classList.remove('is-open');
+    }
+    closeBtn.addEventListener('click', e => { e.stopPropagation(); closeOverlay(); });
+    overlayVideo.addEventListener('ended', closeOverlay);
+    overlay.dataset.boundClose = '1';
+    overlay._close = closeOverlay;
+  });
+
+  document.querySelectorAll('[data-clip-player]').forEach(player => {
+    player.addEventListener('click', e => {
+      e.stopPropagation();
+      const src = player.dataset.src;
+      if (!src) return;
+      const colMedia = player.closest('.col-media');
+      const overlay = colMedia ? colMedia.querySelector('[data-clip-overlay]') : null;
+      if (!overlay) return;
+      const overlayVideo = overlay.querySelector('video');
+      overlayVideo.src = src;
+      overlayVideo.muted = false;
+      overlay.classList.add('is-open');
+      const pr = overlayVideo.play();
+      if (pr && typeof pr.catch === 'function') pr.catch(() => {});
+    });
+  });
 
   function nextSlide() { goTo(current + 1); }
   function prevSlide() { goTo(current - 1); }
