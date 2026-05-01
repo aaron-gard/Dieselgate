@@ -274,8 +274,9 @@
     .clip-stack-overlay video{width:100%;height:100%;object-fit:contain;display:block;background:#000;}
     .clip-stack-overlay-close{position:absolute;top:.6rem;right:.6rem;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:6;font-size:1.1rem;line-height:1;padding:0;}
     .clip-stack-overlay-close:hover{background:rgba(0,0,0,.85);border-color:rgba(255,255,255,.85);}
-    .narration-bubble{position:absolute;right:clamp(1.5rem,4vw,3.5rem);bottom:clamp(5.4rem,8vh,7rem);z-index:30;width:146px;height:146px;padding:0;appearance:none;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.85);background:rgba(0,14,38,.82);box-shadow:0 14px 34px rgba(0,0,0,.38),0 0 0 1px rgba(0,0,0,.22);cursor:pointer;opacity:.92;transform:translateZ(0);transition:width .22s ease,height .22s ease,opacity .22s ease,box-shadow .22s ease,border-color .22s ease;}
-    .narration-bubble:hover,.narration-bubble:focus-within,.narration-bubble.is-previewing,.narration-bubble.is-playing{width:195px;height:195px;opacity:1;border-color:var(--cyan);box-shadow:0 18px 44px rgba(0,0,0,.48),0 0 0 4px rgba(76,199,244,.14);}
+    .narration-bubble{position:absolute;right:clamp(1.5rem,4vw,3.5rem);bottom:clamp(1rem,2vh,1.75rem);z-index:30;width:120px;height:120px;padding:0;appearance:none;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.85);background:rgba(0,14,38,.82);box-shadow:0 14px 34px rgba(0,0,0,.38),0 0 0 1px rgba(0,0,0,.22);cursor:pointer;opacity:.92;transform:translateZ(0);transition:width .22s ease,height .22s ease,opacity .22s ease,box-shadow .22s ease,border-color .22s ease;}
+    .narration-bubble-left{right:auto;left:clamp(1.5rem,4vw,3.5rem);}
+    .narration-bubble:hover,.narration-bubble:focus-within,.narration-bubble.is-previewing,.narration-bubble.is-playing{width:175px;height:175px;opacity:1;border-color:var(--cyan);box-shadow:0 18px 44px rgba(0,0,0,.48),0 0 0 4px rgba(76,199,244,.14);}
     .narration-bubble video{width:100%;height:100%;display:block;object-fit:cover;object-position:center;border-radius:50%;}
     .narration-bubble::before{content:'';position:absolute;inset:0;border-radius:50%;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.42));pointer-events:none;transition:opacity .18s ease;}
     .narration-bubble.is-previewing::before,.narration-bubble.is-playing::before{opacity:.18;}
@@ -285,7 +286,7 @@
     .narration-bubble.is-previewing .narration-play,.narration-bubble.is-playing .narration-play{opacity:0;pointer-events:none;}
     .narration-caption{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font-size:.5rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:white;text-shadow:0 1px 8px rgba(0,0,0,.6);white-space:nowrap;opacity:0;transition:opacity .18s ease;pointer-events:none;}
     .narration-bubble:hover .narration-caption,.narration-bubble:focus-within .narration-caption,.narration-bubble.is-previewing .narration-caption,.narration-bubble.is-playing .narration-caption{opacity:.95;}
-    @media(max-width:900px){.narration-bubble{width:117px;height:117px;right:1rem;bottom:4.75rem}.narration-bubble:hover,.narration-bubble:focus-within,.narration-bubble.is-previewing,.narration-bubble.is-playing{width:156px;height:156px}}
+    @media(max-width:900px){.narration-bubble{width:96px;height:96px;right:1rem;bottom:1rem}.narration-bubble-left{right:auto;left:1rem}.narration-bubble:hover,.narration-bubble:focus-within,.narration-bubble.is-previewing,.narration-bubble.is-playing{width:140px;height:140px}}
     .hero-bg{position:absolute;inset:0;background:url('img/vw-graveyard-hero.jpg') center/cover no-repeat;}
     .hero-grad{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,8,20,.82) 0%,rgba(0,14,38,.5) 50%,rgba(0,8,20,.15) 100%);}
     .hero-grad2{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,8,20,.55) 100%);}
@@ -422,7 +423,7 @@
   <!-- ═══ SLIDE: THE PROMISE (id: s1) ═══ -->
   <div class="slide slide-bg-grey" id="s1">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
-    <div class="two-col" style="padding-top:100px;min-height:calc(100vh - 56px);">
+    <div class="two-col" style="padding-top:100px;min-height:calc(100vh - 56px);grid-template-columns:42% 58%;">
       <div class="col-media" style="background:#000;">
         <div class="vid-wrap" style="height:100%;">
           <!-- print fallback image -->
@@ -447,19 +448,23 @@
         <div class="fi d2" style="margin:1rem 0 0;display:flex;flex-direction:column;gap:.65rem;">
           <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">2007 | The architect</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Ferdinand Pi&euml;ch, VW&rsquo;s patriarch and chairman of the supervisory board, installs Martin Winterkorn as CEO of Volkswagen AG. A trained physicist and obsessive perfectionist, known for crawling under competitors&rsquo; cars at motor shows with a ruler. He launches Strategy 2018: make VW the largest automaker in the world by 2018, selling 10 million vehicles per year.</p>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Ferdinand Pi&euml;ch installs Martin Winterkorn as CEO. Strategy 2018: become the world&rsquo;s largest automaker, selling 10 million vehicles a year.</p>
           </div>
           <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">2008 | The campaign</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">The Clean Diesel advertising campaign launches in the US to great success, winning a Cannes Lion Grand Prix award and Motor Trend Car of the Year. It becomes one of the most celebrated automotive campaigns of the decade.</p>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Clean Diesel launches in the US. Wins a Cannes Lion Grand Prix and Motor Trend Car of the Year.</p>
           </div>
           <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">2015 | The scale</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">VW becomes the fastest-growing automotive brand in America. Almost 450,000 TDI vehicles sold in the US alone. 11 million affected worldwide, including 8 million across Europe.</p>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Fastest-growing automotive brand in America. 450,000 TDIs sold in the US. 11 million affected worldwide.</p>
           </div>
 
         </div>
       </div>
+    </div>
+    <div class="narration-bubble narration-bubble-light" role="button" tabindex="0" aria-label="Play promise narration video" data-narration>
+      <video preload="auto" playsinline muted poster="assets/dieselgate/promise-presenter-poster.jpg" src="assets/dieselgate/promise-presenter.mp4"></video>
+      <span class="narration-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
     </div>
   </div>
 
@@ -473,19 +478,15 @@
         <div class="fi d2" style="margin:1rem 0 0;display:flex;flex-direction:column;gap:.65rem;">
           <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">The brief</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">In 2005, VW engineers were handed one brief. Hit US NOx limits while matching European performance. The US standard was 11&times; stricter than Europe's equivalent.</p>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">2005: hit US NOx limits while matching European performance. The US standard is far stricter.</p>
           </div>
           <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">The physics</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">To reduce NOx you run the engine cooler, which kills performance and fuel economy. Every supplier VW approached reached the same conclusion. GM engineers, using VW's own parts: &ldquo;We couldn't come anywhere close. It can't be done.&rdquo;</p>
-          </div>
-          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">The warning</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Bosch, who supplied the engine management software, sent VW a written warning that using the software in this configuration outside of test conditions would be illegal.</p>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Cooler engine cuts NOx but kills performance. Every supplier reached the same wall. Bob Lutz at GM: &ldquo;It can&rsquo;t be done.&rdquo;</p>
           </div>
           <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--red);">
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem;">The decision</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Engineers escalated the problem and were overridden. In a culture where &ldquo;it can&rsquo;t be done&rdquo; was not an acceptable answer, the defeat device became the response to an impossible instruction from the top.</p>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Engineers escalated. They were overridden. The defeat device became the response to an impossible instruction.</p>
           </div>
         </div>
       </div>
@@ -498,9 +499,9 @@
         </div>
       </div>
     </div>
-    <div class="discussion-prompt fi d3">
-      <div class="dp-label">Discussion</div>
-      <div class="dp-question">If you were the engineer in 2005, what do you actually do? What would have stopped you from speaking up?</div>
+    <div class="narration-bubble narration-bubble-light" role="button" tabindex="0" aria-label="Play impossible-brief narration video" data-narration>
+      <video preload="auto" playsinline muted poster="assets/dieselgate/brief-presenter-poster.jpg" src="assets/dieselgate/brief-presenter.mp4"></video>
+      <span class="narration-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
     </div>
   </div>
 
@@ -542,6 +543,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="narration-bubble narration-bubble-light narration-bubble-left" role="button" tabindex="0" aria-label="Play unravel narration video" data-narration>
+      <video preload="auto" playsinline muted poster="assets/dieselgate/unravel-presenter-poster.jpg" src="assets/dieselgate/unravel-presenter.mp4"></video>
+      <span class="narration-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
     </div>
   </div>
 
@@ -602,6 +607,10 @@
           <div id="apologyFrame" style="position:absolute;inset:0;"></div>
         </div>
       </div>
+    </div>
+    <div class="narration-bubble narration-bubble-light" role="button" tabindex="0" aria-label="Play fallout narration video" data-narration>
+      <video preload="auto" playsinline muted poster="assets/dieselgate/fallout-presenter-poster.jpg" src="assets/dieselgate/fallout-presenter.mp4"></video>
+      <span class="narration-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
     </div>
   </div>
 
@@ -892,6 +901,10 @@
 
       </div>
     </div>
+    <div class="narration-bubble narration-bubble-light" role="button" tabindex="0" aria-label="Play update narration video" data-narration>
+      <video preload="auto" playsinline muted poster="assets/dieselgate/update-presenter-poster.jpg" src="assets/dieselgate/update-presenter.mp4"></video>
+      <span class="narration-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </div>
   </div>
 
   <!-- ═══ SLIDE: DISCUSSION (id: s11) ═══ -->
@@ -908,7 +921,7 @@
     </div>
     <div class="discussion-prompt fi d3">
       <div class="dp-label">Final question</div>
-      <div class="dp-question">Your organisation has an unsolvable problem. The target is set and non-negotiable. What does ethical leadership look like in that moment?</div>
+      <div class="dp-question">Your organisation faces a non&#8209;negotiable target in a tightly connected system &ndash; pull one thread and everything shifts. What does ethical and globally responsible leadership look like then?</div>
     </div>
   </div>
 
@@ -1143,6 +1156,23 @@
       const p = v.play();
       if (p && typeof p.catch === 'function') p.catch(() => {});
     });
+
+    // Autoplay the YouTube ad when entering Background Slide 1
+    if (SLIDES[current].id === 's1') {
+      setTimeout(() => { try { playVid(); } catch (e) {} }, 450);
+    } else if (ytPlayer) {
+      try { ytPlayer.destroy(); } catch (e) {}
+      ytPlayer = null;
+      var poster = document.getElementById('vidPoster');
+      if (poster) poster.style.display = '';
+      var wrap = document.querySelector('.vid-wrap');
+      if (wrap && !document.getElementById('vidFrame')) {
+        var d = document.createElement('div');
+        d.id = 'vidFrame';
+        d.style.cssText = 'position:absolute;inset:0;';
+        wrap.appendChild(d);
+      }
+    }
 
   }
 
