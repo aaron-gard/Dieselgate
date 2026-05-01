@@ -113,7 +113,7 @@
 
     /* ── SHARED COMPONENTS ── */
     .section-tag{font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:.75rem;}
-    h2.section-title{font-family:Inter,Helvetica,Arial,sans-serif;font-size:clamp(1.6rem,3vw,2.6rem);font-weight:200;color:var(--deep);line-height:1.15;letter-spacing:-.02em;margin-bottom:1.1rem;max-width:680px;}
+    h2.section-title{font-family:Inter,Helvetica,Arial,sans-serif;font-size:clamp(1.6rem,3vw,2.6rem);font-weight:200;color:var(--deep);line-height:1.15;letter-spacing:-.02em;margin-bottom:1.1rem;}
     h2.section-title em{font-style:normal;font-weight:600}
     .section-body{font-size:1.05rem;color:var(--text);line-height:1.75;max-width:560px;margin-bottom:1.25rem;}
     .section-body strong{color:var(--deep);font-weight:500}
@@ -274,9 +274,9 @@
     .clip-stack-overlay video{width:100%;height:100%;object-fit:contain;display:block;background:#000;}
     .clip-stack-overlay-close{position:absolute;top:.6rem;right:.6rem;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:6;font-size:1.1rem;line-height:1;padding:0;}
     .clip-stack-overlay-close:hover{background:rgba(0,0,0,.85);border-color:rgba(255,255,255,.85);}
-    .narration-bubble{position:absolute;right:clamp(1.5rem,4vw,3.5rem);bottom:clamp(1rem,2vh,1.75rem);z-index:30;width:120px;height:120px;padding:0;appearance:none;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.85);background:rgba(0,14,38,.82);box-shadow:0 14px 34px rgba(0,0,0,.38),0 0 0 1px rgba(0,0,0,.22);cursor:pointer;opacity:.92;transform:translateZ(0);transition:width .22s ease,height .22s ease,opacity .22s ease,box-shadow .22s ease,border-color .22s ease;}
+    .narration-bubble{position:absolute;right:clamp(1.5rem,4vw,3.5rem);bottom:clamp(1rem,2vh,1.75rem);z-index:30;width:175px;height:175px;padding:0;appearance:none;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.85);background:rgba(0,14,38,.82);box-shadow:0 14px 34px rgba(0,0,0,.38),0 0 0 1px rgba(0,0,0,.22);cursor:pointer;opacity:.92;transform:translateZ(0);transition:width .22s ease,height .22s ease,opacity .22s ease,box-shadow .22s ease,border-color .22s ease;}
     .narration-bubble-left{right:auto;left:clamp(1.5rem,4vw,3.5rem);}
-    .narration-bubble:hover,.narration-bubble:focus-within,.narration-bubble.is-previewing,.narration-bubble.is-playing{width:175px;height:175px;opacity:1;border-color:var(--cyan);box-shadow:0 18px 44px rgba(0,0,0,.48),0 0 0 4px rgba(76,199,244,.14);}
+    .narration-bubble:hover,.narration-bubble:focus-within,.narration-bubble.is-previewing,.narration-bubble.is-playing{width:210px;height:210px;opacity:1;border-color:var(--cyan);box-shadow:0 18px 44px rgba(0,0,0,.48),0 0 0 4px rgba(76,199,244,.14);}
     .narration-bubble video{width:100%;height:100%;display:block;object-fit:cover;object-position:center;border-radius:50%;}
     .narration-bubble::before{content:'';position:absolute;inset:0;border-radius:50%;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.42));pointer-events:none;transition:opacity .18s ease;}
     .narration-bubble.is-previewing::before,.narration-bubble.is-playing::before{opacity:.18;}
@@ -286,7 +286,7 @@
     .narration-bubble.is-previewing .narration-play,.narration-bubble.is-playing .narration-play{opacity:0;pointer-events:none;}
     .narration-caption{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font-size:.5rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:white;text-shadow:0 1px 8px rgba(0,0,0,.6);white-space:nowrap;opacity:0;transition:opacity .18s ease;pointer-events:none;}
     .narration-bubble:hover .narration-caption,.narration-bubble:focus-within .narration-caption,.narration-bubble.is-previewing .narration-caption,.narration-bubble.is-playing .narration-caption{opacity:.95;}
-    @media(max-width:900px){.narration-bubble{width:96px;height:96px;right:1rem;bottom:1rem}.narration-bubble-left{right:auto;left:1rem}.narration-bubble:hover,.narration-bubble:focus-within,.narration-bubble.is-previewing,.narration-bubble.is-playing{width:140px;height:140px}}
+    @media(max-width:900px){.narration-bubble{width:140px;height:140px;right:1rem;bottom:1rem}.narration-bubble-left{right:auto;left:1rem}.narration-bubble:hover,.narration-bubble:focus-within,.narration-bubble.is-previewing,.narration-bubble.is-playing{width:170px;height:170px}}
     .hero-bg{position:absolute;inset:0;background:url('img/vw-graveyard-hero.jpg') center/cover no-repeat;}
     .hero-grad{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,8,20,.82) 0%,rgba(0,14,38,.5) 50%,rgba(0,8,20,.15) 100%);}
     .hero-grad2{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,8,20,.55) 100%);}
@@ -423,7 +423,7 @@
   <!-- ═══ SLIDE: THE PROMISE (id: s1) ═══ -->
   <div class="slide slide-bg-grey" id="s1">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
-    <div class="two-col" style="padding-top:100px;min-height:calc(100vh - 56px);grid-template-columns:42% 58%;">
+    <div class="two-col" style="padding-top:100px;min-height:calc(100vh - 56px);grid-template-columns:35% 65%;">
       <div class="col-media" style="background:#000;">
         <div class="vid-wrap" style="height:100%;">
           <!-- print fallback image -->
@@ -471,7 +471,7 @@
   <!-- ═══ SLIDE: THE IMPOSSIBLE BRIEF (id: s2) ═══ -->
   <div class="slide slide-bg-grey" id="s2">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
-    <div class="two-col" style="padding-top:100px;">
+    <div class="two-col" style="padding-top:100px;grid-template-columns:65% 35%;">
       <div class="col-text">
         <div class="section-tag fi">Background</div>
         <h2 class="section-title fi d1">The truth was <em>it couldn't be done.</em></h2>
@@ -508,43 +508,43 @@
   <!-- ═══ SLIDE: ETHICAL DILEMMA (id: s-ethical) ═══ -->
   <div class="slide slide-bg-grey" id="s4">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
-    <div class="two-col reverse" style="padding-top:100px;">
-      <div class="col-media" style="position:relative;overflow:hidden;">
+    <div class="two-col reverse" style="padding-top:100px;grid-template-columns:65% 35%;">
+      <div class="col-text" style="order:1;">
+        <div class="section-tag fi">Background</div>
+        <h2 class="section-title fi d1" style="max-width:none;">How the fraud and cover-up <em>unravelled.</em></h2>
+        <div class="fi d2" style="margin:.75rem 0 0;display:flex;flex-direction:column;gap:.5rem;">
+          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--red);">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.2rem;">2013 | Caught</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">West Virginia University tests two VWs on real roads. NOx up to 40&times; the legal limit. The same cars passed every EPA lab test.</p>
+          </div>
+          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.2rem;">2014 | Denied</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">VW blames faulty testing. Issues a recall and a software fix that does nothing.</p>
+          </div>
+          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.2rem;">2014&ndash;2015 | Lied</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">18 months of denial. Oliver Schmidt personally assures regulators the vehicles are compliant.</p>
+          </div>
+          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.2rem;">Sep 3, 2015 | Confessed</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">VW admits the defeat device to CARB. Asks for a quiet resolution. Declined.</p>
+          </div>
+          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--red);">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.2rem;">Sep 18, 2015 | Exposed</div>
+            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">EPA publishes a formal Notice of Violation. VW admits 11 million vehicles worldwide.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-media" style="order:2;position:relative;overflow:hidden;">
         <img src="img/propublica-vw.jpg" alt="Volkswagen emissions scandal" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
-        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.3) 0%,transparent 60%);pointer-events:none;"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to left,rgba(0,0,0,.3) 0%,transparent 60%);pointer-events:none;"></div>
         <div style="position:absolute;bottom:2rem;left:2rem;">
           <div style="font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.3rem;">ProPublica / Reuters, 2018</div>
           <div style="font-size:.85rem;color:white;font-style:italic;opacity:.8;">&ldquo;VW knew for two years before admitting it.&rdquo;</div>
         </div>
       </div>
-      <div class="col-text">
-        <div class="section-tag fi">Background</div>
-        <h2 class="section-title fi d1">How the fraud and cover-up <em>unravelled.</em></h2>
-        <div class="fi d2" style="margin:.75rem 0 0;display:flex;flex-direction:column;gap:.5rem;">
-          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--red);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.2rem;">2013 | Caught</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Three grad students from West Virginia University drive a VW Jetta across the US with a portable emissions device. NOx readings up to 40&times; the legal limit. The same cars had passed every EPA lab test.</p>
-          </div>
-          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.2rem;">2014 | Denied</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">VW tells California regulators the testing equipment was faulty and issues a voluntary recall. The software update has zero effect on real-world emissions.</p>
-          </div>
-          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.2rem;">2014&ndash;2015 | Lied</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">CARB gives VW 4 separate opportunities to come clean over 18 months. All declined. Oliver Schmidt personally assures regulators the vehicles are compliant.</p>
-          </div>
-          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--navy);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.2rem;">Sep 3, 2015 | Confessed</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">VW privately admits the defeat device is real. They ask the EPA for a quiet resolution. The EPA declines.</p>
-          </div>
-          <div style="background:var(--white);padding:.9rem 1.25rem;border-left:3px solid var(--red);">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.2rem;">Sep 18, 2015 | Exposed</div>
-            <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">The EPA publishes a formal Notice of Violation. Three days later, VW admits the defeat device was installed in 11 million vehicles worldwide.</p>
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="narration-bubble narration-bubble-light narration-bubble-left" role="button" tabindex="0" aria-label="Play unravel narration video" data-narration>
+    <div class="narration-bubble narration-bubble-light" role="button" tabindex="0" aria-label="Play unravel narration video" data-narration>
       <video preload="auto" playsinline muted poster="assets/dieselgate/unravel-presenter-poster.jpg" src="assets/dieselgate/unravel-presenter.mp4"></video>
       <span class="narration-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
     </div>
@@ -553,7 +553,7 @@
   <!-- ═══ SLIDE: THE APOLOGY (id: s5) ═══ -->
   <div class="slide slide-bg-grey" id="s5">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
-    <div class="two-col" style="padding-top:100px;">
+    <div class="two-col" style="padding-top:100px;grid-template-columns:65% 35%;">
       <div class="col-text">
         <div class="section-tag fi">Background</div>
         <h2 class="section-title fi d1">The <em>fallout.</em></h2>
@@ -618,7 +618,7 @@
 <!-- ═══ SLIDE: ETHICAL DILEMMA 1 - WHO KNEW (id: s-whokn) ═══ -->
   <div class="slide slide-bg-grey" id="s-whokn">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
-    <div class="two-col" style="padding-top:100px;grid-template-columns:1fr 1fr;">
+    <div class="two-col" style="padding-top:100px;grid-template-columns:35% 65%;">
       <div class="col-media" style="position:relative;overflow:hidden;background:#000;">
         <div class="clip-stack" style="position:absolute;inset:0;display:flex;flex-direction:column;gap:6px;">
           <div data-clip-player data-src="assets/dieselgate/whokn-clip3.mp4" style="position:relative;flex:1;min-height:0;overflow:hidden;cursor:pointer;">
@@ -658,6 +658,10 @@
         </div>
       </div>
     </div>
+    <div class="narration-bubble narration-bubble-light" role="button" tabindex="0" aria-label="Play individual narration video" data-narration>
+      <video preload="auto" playsinline muted poster="assets/dieselgate/individual-presenter-poster.jpg" src="assets/dieselgate/individual-presenter.mp4"></video>
+      <span class="narration-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </div>
   </div>
 
 
@@ -669,7 +673,7 @@
       <!-- Header -->
       <div style="max-width:1300px;margin:0 auto;width:100%;padding:1.5rem 3rem .5rem;">
         <div class="section-tag fi">Ethical Dilemma - Team &amp; Culture</div>
-        <h2 class="section-title fi d1" style="margin-bottom:.2rem;">The defeat device needed thousands of people to stay silent for a decade. Three conditions explain <em>why they did.</em></h2>
+        <h2 class="section-title fi d1" style="margin-bottom:.2rem;max-width:none;">The defeat device needed thousands of people to stay silent for a decade. Three conditions explain <em>why they did.</em></h2>
       </div>
       <!-- Three mechanism cards -->
       <div style="max-width:1300px;margin:0 auto;width:100%;padding:.5rem 3rem 1rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;align-items:stretch;" class="fi d2">
@@ -679,8 +683,7 @@
           <div>
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Targets without limits</div>
           </div>
-          <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Strategy 2018 demanded 10 million vehicles per year. It arrived without guardrails, without compliance floors, without a definition of acceptable methods. When the engineering team said the US NOx target was physically impossible, they were overridden.<span class="cite">(Bach &amp; Allen 2010)</span></p>
-          <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Professor David Bach of Yale put it simply. <em>&ldquo;Stretch goals are very useful. Precisely because they generate a lot of pressure, you have to make sure they are coupled with a clear sense of what the boundaries are. That was just missing at Volkswagen.&rdquo;</em></p>
+          <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Strategy 2018 demanded 10 million vehicles a year. No guardrails, no compliance floors. Engineers said the NOx target was impossible. They were overridden.<span class="cite">(Bach &amp; Allen 2010)</span></p>
           <blockquote style="font-size:.8rem;border-left:none;padding:0;margin:0;font-style:italic;color:var(--muted);">&ldquo;Do it, or I'll find someone who can.&rdquo;<cite style="font-style:normal;">Ferdinand Piëch</cite></blockquote>
         </div>
 
@@ -689,8 +692,7 @@
           <div>
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Fear as management style</div>
           </div>
-          <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Winterkorn publicly humiliated executives at motor shows. Piëch fired whole teams to make a point. In that culture, raising a problem was career suicide.<span class="cite">(McCormick &amp; Smith 2018)</span></p>
-          <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Bob Lutz, former Vice Chairman of GM, described it as a <em>&ldquo;reign of terror.&rdquo;</em> He recounted Piëch explaining his approach to innovation: call all engineers into a room and tell them if they could not find a new way to do the job in six weeks, they would all be fired. <em>&ldquo;You know your problem, Mr. Lutz? You&rsquo;re way too soft. When I want something, I get it.&rdquo;</em></p>
+          <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Winterkorn humiliated executives publicly. Piëch fired teams to make a point. Bob Lutz called it a &ldquo;reign of terror.&rdquo; Raising a problem was career suicide.<span class="cite">(McCormick &amp; Smith 2018)</span></p>
           <blockquote style="font-size:.8rem;border-left:none;padding:0;margin:0;font-style:italic;color:var(--muted);">&ldquo;VW had this special culture. It was like North Korea without the labour camps.&rdquo;<cite style="font-style:normal;">Former VW management trainee</cite></blockquote>
         </div>
 
@@ -699,23 +701,23 @@
           <div>
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.4rem;">No oversight designed to work</div>
           </div>
-          <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Dozens of engineers knew the defeat device was illegal. None went to a regulator. The supervisory board had one independent member out of twenty.<span class="cite">(Brown &amp; Trevi&ntilde;o 2006)</span></p>
-          <blockquote style="font-size:.8rem;border-left:none;padding:0;margin:0;font-style:italic;color:var(--muted);">&ldquo;The board was only really there for show. They lacked the ability to ask any deep technical questions.&rdquo;<cite style="font-style:normal;">Former VW executive, Financial Times</cite></blockquote>
+          <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Dozens of engineers knew. None went to a regulator. The supervisory board had one independent member out of twenty.<span class="cite">(Brown &amp; Trevi&ntilde;o 2006)</span></p>
+          <blockquote style="font-size:.8rem;border-left:none;padding:0;margin:0;font-style:italic;color:var(--muted);">&ldquo;The board was only really there for show.&rdquo;<cite style="font-style:normal;">Former VW executive, Financial Times</cite></blockquote>
         </div>
 
       </div>
+    </div>
+    <div class="narration-bubble narration-bubble-light" role="button" tabindex="0" aria-label="Play culture narration video" data-narration>
+      <video preload="auto" playsinline muted poster="assets/dieselgate/culture-presenter-poster.jpg" src="assets/dieselgate/culture-presenter.mp4"></video>
+      <span class="narration-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
     </div>
   </div>
 
   <!-- ═══ SLIDE: THE COVER-UP (id: s-coverup) ═══ -->
   <div class="slide slide-bg-grey" id="s-coverup">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
-    <div class="two-col" style="padding-top:100px;">
-      <div class="col-media" style="position:relative;overflow:hidden;">
-        <img src="img/propublica-vw.jpg" alt="VW factory" style="width:100%;height:100%;object-fit:cover;">
-        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.45) 0%,rgba(0,0,0,.15) 55%,transparent 100%);pointer-events:none;"></div>
-      </div>
-      <div class="col-text">
+    <div style="padding-top:100px;">
+      <div class="col-text" style="max-width:1300px;margin:0 auto;">
         <div class="section-tag fi">Ethical Dilemma - Leadership &amp; Global Stakeholders</div>
         <h2 class="section-title fi d1">The cover-up was <em>a choice.</em></h2>
         <div class="fi d2" style="margin:0;display:flex;flex-direction:column;gap:.65rem;">
@@ -738,16 +740,16 @@
         </div>
       </div>
     </div>
-    <div class="discussion-prompt fi d3" style="right:auto;left:2rem;">
-      <div class="dp-label">Discussion</div>
-      <div class="dp-question">At what point does silence become complicity?</div>
+    <div class="narration-bubble narration-bubble-light" role="button" tabindex="0" aria-label="Play leadership narration video" data-narration>
+      <video preload="auto" playsinline muted poster="assets/dieselgate/leadership-presenter-poster.jpg" src="assets/dieselgate/leadership-presenter.mp4"></video>
+      <span class="narration-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
     </div>
   </div>
 
   <!-- ═══ SLIDE: LEADER EVALUATION (id: s-eval) ═══ -->
   <div class="slide slide-bg-grey" id="s8">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
-    <div class="two-col" style="padding-top:100px;grid-template-columns:38% 1fr;">
+    <div class="two-col" style="padding-top:100px;grid-template-columns:35% 65%;">
       <!-- Image column -->
       <div class="col-media" style="position:relative;overflow:hidden;">
         <img src="img/whichcar-settlement.jpg" alt="VW Dieselgate US settlement court" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
@@ -794,7 +796,7 @@
   <!-- ═══ SLIDE: EVALUATION (id: s-eval) ═══ -->
   <div class="slide slide-bg-grey" id="s-eval">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
-    <div class="two-col" style="padding-top:100px;grid-template-columns:38% 1fr;">
+    <div class="two-col" style="padding-top:100px;grid-template-columns:35% 65%;">
       <!-- LEFT: Winterkorn image -->
       <div class="col-media" style="position:relative;overflow:hidden;">
         <img src="img/guardian-winterkorn.jpg" alt="Martin Winterkorn, CEO Volkswagen AG" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
