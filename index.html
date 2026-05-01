@@ -554,6 +554,9 @@
   <div class="slide slide-bg-grey" id="s5">
     <div class="print-nav"><div class="nav-inner"><span class="nav-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 4h24v2H0zM0 11h14v2H0zM0 18h20v2H0z"/></svg>Menu</span></div><div class="nav-center"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M12 22.586c-5.786 0-10.543-4.8-10.543-10.586 0-1.2.214-2.357.6-3.471l6.172 12c.085.171.171.3.385.3.215 0 .3-.129.386-.3l2.871-6.386q.064-.129.129-.129c.086 0 .086.086.129.129l2.914 6.386c.086.171.171.3.386.3.214 0 .3-.129.385-.3l6.172-12c.385 1.071.6 2.228.6 3.471-.043 5.786-4.8 10.586-10.586 10.586m0-13.329c-.086 0-.086-.086-.129-.128l-3.3-7.115a10.12 10.12 0 0 1 6.858 0l-3.3 7.115c-.043.042-.043.128-.129.128m-3.471 7.714c-.086 0-.086-.085-.129-.128L3 6.47c.943-1.542 2.314-2.828 3.9-3.728l3.814 8.228c.086.172.172.215.3.215h1.972c.128 0 .214-.043.3-.215l3.771-8.228c1.586.9 2.957 2.186 3.9 3.728L15.6 16.843q-.065.128-.129.128c-.085 0-.085-.085-.128-.128L13.286 12.3c-.086-.171-.172-.214-.3-.214h-1.972c-.128 0-.214.043-.3.214l-2.057 4.543c-.043.043-.043.128-.128.128M12 24c6.643 0 12-5.357 12-12S18.643 0 12 0 0 5.357 0 12s5.357 12 12 12"/></svg></div></div>
     <div class="two-col" style="padding-top:100px;grid-template-columns:35% 65%;">
+      <div class="col-media" style="order:1;background:#0a0a0a;position:relative;overflow:hidden;">
+        <img src="img/stuff-apology.jpg" alt="VW Dieselgate apology" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
       <div class="col-text" style="order:2;">
         <div class="section-tag fi">Background</div>
         <h2 class="section-title fi d1">The <em>fallout.</em></h2>
@@ -574,23 +577,6 @@
             <div style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;">Market</div>
             <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">Diesel consumer confidence collapsed across Europe and North America. Winterkorn promised transparency and explained nothing. M&uuml;ller told NPR &ldquo;we didn&rsquo;t lie&rdquo; and asked to redo the interview.</p>
           </div>
-        </div>
-      </div>
-      <div class="col-media" style="order:1;background:#0a0a0a;">
-        <div class="vid-wrap" style="height:100%;min-height:300px;position:relative;">
-          <!-- print fallback image -->
-          <img src="img/stuff-apology.jpg" alt="VW Dieselgate apology" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" class="print-only" />
-          <div id="apologyPoster" onclick="playApology()" style="position:absolute;inset:0;z-index:2;cursor:pointer;background:url('img/stuff-apology.jpg') center/cover no-repeat;">
-            <div style="position:absolute;inset:0;background:rgba(0,0,0,.4);"></div>
-            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
-              <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.25);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <div style="font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);">Watch the apology</div>
-              <div style="font-size:.62rem;color:rgba(255,255,255,.35);font-style:italic;">&ldquo;We have totally screwed up&rdquo;, BBC News, 2015</div>
-            </div>
-          </div>
-          <div id="apologyFrame" style="position:absolute;inset:0;"></div>
         </div>
       </div>
     </div>
@@ -1146,7 +1132,7 @@
     });
 
     // Autoplay narration bubble (with sound, after 1s) on most slides
-    var bubbleAutoSkip = ['s0','s1','s5'];
+    var bubbleAutoSkip = ['s0','s1'];
     if (bubbleAutoSkip.indexOf(SLIDES[current].id) === -1) {
       var bubble = inEl.querySelector('[data-narration]');
       if (bubble) {
@@ -1188,26 +1174,7 @@
       }
     }
 
-    // Autoplay the apology video when entering Background Slide 4
-    if (SLIDES[current].id === 's5') {
-      setTimeout(() => { try { playApology(); } catch (e) {} }, 450);
-    } else if (apologyPlayer) {
-      try { apologyPlayer.destroy(); } catch (e) {}
-      apologyPlayer = null;
-      var aposter = document.getElementById('apologyPoster');
-      if (aposter) aposter.style.display = '';
-      var awrap = document.querySelector('#s5 .vid-wrap, #s5 [id="apologyFrame"]');
-      if (!document.getElementById('apologyFrame')) {
-        var s5 = document.getElementById('s5');
-        var posterEl = s5 && s5.querySelector('#apologyPoster');
-        if (posterEl && posterEl.parentNode) {
-          var nd = document.createElement('div');
-          nd.id = 'apologyFrame';
-          nd.style.cssText = 'position:absolute;inset:0;';
-          posterEl.parentNode.appendChild(nd);
-        }
-      }
-    }
+
 
   }
 
