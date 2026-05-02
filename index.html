@@ -719,7 +719,7 @@
         </div>
         <div style="grid-column:1 / 2;padding:.8rem 1.15rem;background:var(--navy);color:white;border-left:3px solid var(--cyan);display:block;">
           <div style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:.35rem;">Discussion</div>
-          <p style="font-size:.88rem;line-height:1.45;margin:0;font-style:italic;">When the people harmed are invisible to the decision room, who is leadership accountable to?</p>
+          <p style="font-size:.88rem;line-height:1.45;margin:0;font-style:italic;">When the people most affected by a decision have no voice in the room, how should leaders make sure they are still heard?</p>
         </div>
       </div>
     </div>
@@ -800,10 +800,6 @@
             <p style="font-size:1rem;color:var(--text);line-height:1.7;margin:0;">He was in the room when NOx non-compliance was discussed in 2007. He denied knowledge under oath. Indicted for fraud and perjury.<span class="cite">(McCormick &amp; Smith 2018)</span></p>
           </div>
 
-          <div style="background:var(--navy);padding:.8rem 1.15rem;border-left:3px solid var(--cyan);color:white;width:52%;align-self:flex-start;">
-            <div style="font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:.35rem;">Discussion</div>
-            <p style="font-size:.88rem;line-height:1.45;margin:0;font-style:italic;">Should leaders be judged only by what they explicitly knew, or also by the culture and pressure system they created?</p>
-          </div>
 
         </div>
       </div>
@@ -935,7 +931,7 @@
     </div>
     <div class="discussion-prompt fi d3">
       <div class="dp-label">Final question</div>
-      <div class="dp-question">Your organisation faces a non&#8209;negotiable target in a tightly connected system &ndash; pull one thread and everything shifts. What does ethical and globally responsible leadership look like then?</div>
+      <div class="dp-question">When a target feels non-negotiable, what should ethical leaders be willing to challenge?</div>
     </div>
   </div>
 
@@ -1227,18 +1223,29 @@
 
   }
 
-  // Click-to-play handlers for stacked clip players (open in overlay)
+  // Click-to-play handlers for stacked clip players (open in browser fullscreen)
   document.querySelectorAll('[data-clip-overlay]').forEach(overlay => {
     const overlayVideo = overlay.querySelector('video');
     const closeBtn = overlay.querySelector('.clip-stack-overlay-close');
-    function closeOverlay() {
+    function resetClipPlayer() {
       overlayVideo.pause();
       overlayVideo.removeAttribute('src');
       overlayVideo.load();
       overlay.classList.remove('is-open');
     }
+    function closeOverlay() {
+      if (document.fullscreenElement && document.exitFullscreen) {
+        document.exitFullscreen().catch?.(() => {});
+      }
+      resetClipPlayer();
+    }
     closeBtn.addEventListener('click', e => { e.stopPropagation(); closeOverlay(); });
-    overlayVideo.addEventListener('ended', closeOverlay);
+    overlayVideo.addEventListener('ended', () => {
+      if (document.fullscreenElement && document.exitFullscreen) {
+        document.exitFullscreen().catch?.(() => {});
+      }
+      window.setTimeout(resetClipPlayer, 250);
+    });
     overlay.dataset.boundClose = '1';
     overlay._close = closeOverlay;
   });
@@ -1257,6 +1264,8 @@
       overlay.classList.add('is-open');
       const pr = overlayVideo.play();
       if (pr && typeof pr.catch === 'function') pr.catch(() => {});
+      const requestFullscreen = overlayVideo.requestFullscreen || overlayVideo.webkitRequestFullscreen;
+      if (requestFullscreen) requestFullscreen.call(overlayVideo).catch?.(() => {});
     });
   });
 
